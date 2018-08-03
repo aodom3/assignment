@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 import bb from 'express-busboy';
 // import routes
 import todoRoutes from './routes/todo.server.route';
+import SourceMapSupport from 'source-map-support';
 // define our app using express
 const app = express();
 // express-busboy to parse multipart/form-data
@@ -29,6 +30,8 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/mern-todo-app', {
   useMongoClient: true,
 });
+// add Source Map Support
+SourceMapSupport.install();
 app.use('/api', todoRoutes);
 app.get('/', (req,res) => {
   return res.end('Api working');
