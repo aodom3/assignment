@@ -4,14 +4,14 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
-import bb from 'express-busboy';
+// import bb from 'express-busboy';
 // import routes
 import todoRoutes from './routes/todo.server.route';
 import SourceMapSupport from 'source-map-support';
 // define our app using express
 const app = express();
 // express-busboy to parse multipart/form-data
-bb.extend(app);
+// bb.extend(app);
 // allow-cors
 app.use(function(req,res,next){
   res.header("Access-Control-Allow-Origin", "*");
